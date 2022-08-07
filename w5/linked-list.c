@@ -52,9 +52,17 @@ int main()
 
     list->next->next = n;
 
-    for (node* tmp = list; tmp != NULL; tmp = tmp->next)
+    for (node* tmp = list; tmp != NULL; tmp = tmp->next) //the for loop in linked lists
     {
         printf("%i\n", tmp->number);
     }
 
+    //Free list    
+
+    while(list != NULL)
+    {
+        node* tmp = list->next; //tmp now points to second node
+        free(list); //list is the address of first node
+        list = tmp;
+    }
 }
